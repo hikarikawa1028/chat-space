@@ -25,26 +25,27 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |email|text|null: false, unique: ture|
 |password|integer|null: false|
 
 ### Association
-- has_many :masseage
+- has_many :masseages
+- has_many :groups_users
 - has_many :group, through: :groups_users
 
 
-## massegeテーブル
+## massegesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
-|group_id|integer|null: false|
+|body|text|
+|image|string|
+|group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false|
 
 ### Association
-- has_many :group
+- has_many :groups
 - belongs_to :users
 
 
@@ -53,11 +54,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |title|text|null: false|
-|user_id|integer|null: false|
-|user_id|integer|null: false|
 
 ### Association
-- belongs_to :masseage
+- has_many :masseage
+- has_many :groups_users
 - has_many :users, through: :groups_users
 
 ## groups_usersテーブル
