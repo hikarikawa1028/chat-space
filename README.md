@@ -21,6 +21,45 @@ Things you may want to cover:
 
 * Deployment instructions
 
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+|email|text|null: false, unique: ture|
+|password|integer|null: false|
+
+### Association
+- has_many :masseage
+- has_many :group, through: :groups_users
+
+
+## massegeテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string|null: false|
+|group_id|integer|null: false|
+|user_id|integer|null: false|
+
+### Association
+- has_many :group
+- belongs_to :users
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|title|text|null: false|
+|user_id|integer|null: false|
+|user_id|integer|null: false|
+
+### Association
+- belongs_to :masseage
+- has_many :users, through: :groups_users
+
 ## groups_usersテーブル
 
 |Column|Type|Options|
