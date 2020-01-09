@@ -1,1 +1,44 @@
-.main_chat
+.main-chat
+  .main-chat__messages-info
+    .main-chat__messages-info__left-box
+      .main-chat__messages-info__left-box__current-group test
+      %ul.main-chat__messages-info__left-box__member__list 
+        member :&nbsp;
+        %li.main-chat__messages-info__left-box__member__list__menber 
+          masa
+    .main-chat__messages-info__edt-btn
+      =link_to "Edit", "#", class:"edit-btn"
+  .main-chat__messages-list
+    .main-chat__messages-list__messages
+      .main-chat__messages-list__message-box
+        .main-chat__messages-list__message-box__tallker
+          MASA
+        .main-chat__messages-list__message-box__time
+          2020/1/8 (Web)20:58
+      .main-chat__messages-list__message-box__text
+        頑張るぞー！！！
+
+    .main-chat__messages-list__messages
+      .main-chat__messages-list__message-box
+        .main-chat__messages-list__message-box__tallker
+          MASA
+        .main-chat__messages-list__message-box__time
+          2020/1/8 (Web)20:58
+      .main-chat__messages-list__message-box__text
+        頑張るぞー！！！
+    .main-chat__messages-list__messages
+      .main-chat__messages-list__message-box
+        .main-chat__messages-list__message-box__tallker
+          MASA
+        .main-chat__messages-list__message-box__time
+          2020/1/8 (Web)20:58
+      .main-chat__messages-list__message-box__text
+        頑張るぞー！！！
+  .main-chat__messages-from
+    %form.new-messages
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder:"type a message"}
+        %label{class:"input-box__image"}
+          =icon('fas','image')
+          %input{type:"file", class:"input-box__image__file"}
+        %input{type:"submit", class:"sumbit-btn", value:"Send"}
