@@ -6,10 +6,7 @@
         member :&nbsp;
         %li.main-chat__messages-info__left-box__member-list__menber 
     .main-chat__messages-info__edt-btn
-      =link_to "Edit", "#", class:"edit-btn"
-
-
-      
+      = link_to "Edit",edit_group_path(@group), class:"edit-btn"
   .main-chat__messages-list
     .main-chat__messages-list__messages
       .main-chat__messages-list__message-box
