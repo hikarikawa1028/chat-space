@@ -1,43 +1,29 @@
 .main-chat
   .main-chat__messages-info
     .main-chat__messages-info__left-box
-      .main-chat__messages-info__left-box__current-group test
+      .main-chat__messages-info__left-box__current-group 
+        = @group.name
       %ul.main-chat__messages-info__left-box__current-group__member-list 
         member :&nbsp;
+        - @group.users.each do |user|
+          = user.name
         %li.main-chat__messages-info__left-box__member-list__menber 
     .main-chat__messages-info__edt-btn
       = link_to "Edit",edit_group_path(@group), class:"edit-btn"
-  .main-chat__messages-list
-    .main-chat__messages-list__messages
-      .main-chat__messages-list__message-box
-        .main-chat__messages-list__message-box__tallker
-          MASA
-        .main-chat__messages-list__message-box__time
-          2020/1/8 (Web)20:58
-      .main-chat__messages-list__message-box__text
-        頑張るぞー！！！
 
-    .main-chat__messages-list__messages
-      .main-chat__messages-list__message-box
-        .main-chat__messages-list__message-box__tallker
-          MASA
-        .main-chat__messages-list__message-box__time
-          2020/1/8 (Web)20:58
-      .main-chat__messages-list__message-box__text
-        頑張るぞー！！！
-    .main-chat__messages-list__messages
-      .main-chat__messages-list__message-box
-        .main-chat__messages-list__message-box__tallker
-          MASA
-        .main-chat__messages-list__message-box__time
-          2020/1/8 (Web)20:58
-      .main-chat__messages-list__message-box__text
-        頑張るぞー！！！
+
+  .main-chat__messages-list
+    = render @messages
+
+
+
   .main-chat__messages-from
-    %form.new-messages
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'main-chat__messages-from__text', placeholder: 'type a message'
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder:"type a message"}
-        %label{class:"input-box__image"}
-          =icon('fas','image')
-          %input{type:"file", class:"input-box__image__file"}
-        %input{type:"submit", class:"sumbit-btn", value:"Send"}
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'sumbit-btn'
+
+        
