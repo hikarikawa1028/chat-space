@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
+        # format.any
         format.json
       end
     else
