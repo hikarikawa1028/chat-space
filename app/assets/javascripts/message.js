@@ -79,7 +79,6 @@ $('#new_message').on('submit', function(e){
 var reloadMessages = function() {
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
   last_message_id = $('.main-chat__messages-list__messages:last').data("message-id");
-  console.log(last_message_id)
   $.ajax({
     //ルーティングで設定した通りのURLを指定
     url: "api/messages",
@@ -106,7 +105,7 @@ var reloadMessages = function() {
     }
   })
   .fail(function() {
-    console.log('error');
+    alert('error');
   });
 };
 if (document.location.href.match(/\/groups\/\d+\/messages/)) {
