@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  # gem 'sshkit', '1.18.2'
 end
 
 group :development do
